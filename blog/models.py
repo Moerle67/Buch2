@@ -20,7 +20,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     status = models.CharField(max_length=2,choices=Status.choices, default=Status.DRAFT)
     objects = models.Manager()
-    publish = PublishedManager()
+    published = PublishedManager()
     class Meta():
         ordering = ['-publish']
         indexes = [models.Index(fields=['-publish'])]
