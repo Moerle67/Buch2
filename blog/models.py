@@ -13,7 +13,7 @@ class Post(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
     title = models.CharField(max_length=250)
-    slug = models.CharField(max_length=250)
+    slug = models.SlugField(max_length=250, unique_for_date='puplish')
     author = models.ForeignKey(User, related_name=("blog_posts"), on_delete=models.CASCADE)
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now ,auto_now=False, auto_now_add=False)
