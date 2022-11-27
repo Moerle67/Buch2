@@ -12,4 +12,6 @@ def post_detail(request, year, month, day, post):
     
 def post_list(request):
     posts = Post.published.all()
+    # Pagination with 3 posts per page
+    paginator = 
     return render(request, 'blog/post/list.html', {'posts': posts})
